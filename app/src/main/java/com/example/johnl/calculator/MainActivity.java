@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private Double operand1 = null;
     private String pendingOp = "=";
 
+    private static final String STATE_PENDING_OPERATION = "PendingOp";
+    private static final String STATE_OPERAND1 = "Operand1";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,6 +91,23 @@ public class MainActivity extends AppCompatActivity {
         buttonEql.setOnClickListener(opListener);
         buttonMin.setOnClickListener(opListener);
         buttonMul.setOnClickListener(opListener);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(STATE_PENDING_OPERATION, pendingOp);
+        if(operand1 != null){
+            outState.putDouble(STATE_OPERAND1, operand1);
+        }
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        pendingOp = savedInstanceState.getString(STATE_PENDING_OPERATION);
+        operand1 = savedInstanceState.getDouble(STATE_OPERAND1);
+        displayOperation.setText(pendingOp);
     }
 
     private void performOperation(Double value, String op) {
