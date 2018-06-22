@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         Button buttonEql = (Button) findViewById(R.id.buttonEql);
         Button buttonMin = (Button) findViewById(R.id.buttonMin);
         Button buttonMul = (Button) findViewById(R.id.buttonMul);
+        Button buttonNeg = (Button) findViewById(R.id.buttonNeg);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        // Set on click listener
+        // Set on click listeners for numerical buttons
         button0.setOnClickListener(listener);
         button1.setOnClickListener(listener);
         button2.setOnClickListener(listener);
@@ -86,11 +87,31 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        // Set on click listeners for operation buttons
         buttonAdd.setOnClickListener(opListener);
         buttonDiv.setOnClickListener(opListener);
         buttonEql.setOnClickListener(opListener);
         buttonMin.setOnClickListener(opListener);
         buttonMul.setOnClickListener(opListener);
+
+        buttonNeg.setOnClickListener(new View.OnClickListener(){
+           @Override
+           public void onClick(View view){
+               String value = newNumber.getText().toString();
+               if(value.length() == 0){
+                   newNumber.setText("-");
+               }
+               else{
+                   try{
+                       Double doubleValue = Double.valueOf(value);
+                       doubleValue *= -1;
+                       newNumber.setText(doubleValue.toString());
+                   } catch(NumberFormatException e){
+                       newNumber.setText("");
+                   }
+               }
+           }
+        });
     }
 
     @Override
