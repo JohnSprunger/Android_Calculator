@@ -7,18 +7,16 @@
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="73dp">
 
-    <EditText
-        android:id="@+id/result"
+    <Button
+        android:id="@+id/buttonOff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:inputType="numberSigned|numberDecimal"
-        app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="OFF"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonAdd"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
 
     <Button
         android:id="@+id/button0"
@@ -120,14 +118,25 @@
         app:layout_constraintTop_toBottomOf="@+id/result" />
 
     <Button
-        android:id="@+id/buttonDiv"
+        android:id="@+id/buttonDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:minWidth="48dp"
+        android:text="."
+        app:layout_constraintBaseline_toBaselineOf="@+id/button0"
+        app:layout_constraintEnd_toStartOf="@+id/button0" />
+
+    <Button
+        android:id="@+id/buttonClr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:minWidth="48dp"
-        android:text="/"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button9"
-        app:layout_constraintStart_toEndOf="@+id/button9" />
+        android:text="CLR"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMin"
+        app:layout_constraintStart_toEndOf="@+id/buttonMin" />
 
     <Button
         android:id="@+id/buttonNeg"
@@ -137,6 +146,17 @@
         android:minWidth="48dp"
         android:text="NEG"
         android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMul"
+        app:layout_constraintStart_toEndOf="@+id/buttonMul" />
+
+    <Button
+        android:id="@+id/buttonMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="%"
+        android:textSize="14sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buttonDiv"
         app:layout_constraintStart_toEndOf="@+id/buttonDiv" />
 
@@ -149,6 +169,16 @@
         android:text="*"
         app:layout_constraintBaseline_toBaselineOf="@+id/button6"
         app:layout_constraintStart_toEndOf="@+id/button6" />
+
+    <Button
+        android:id="@+id/buttonDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="/"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/button9" />
 
     <Button
         android:id="@+id/buttonMin"
@@ -171,16 +201,6 @@
         app:layout_constraintStart_toEndOf="@+id/buttonEql" />
 
     <Button
-        android:id="@+id/buttonDot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:minWidth="48dp"
-        android:text="."
-        app:layout_constraintBaseline_toBaselineOf="@+id/button0"
-        app:layout_constraintEnd_toStartOf="@+id/button0" />
-
-    <Button
         android:id="@+id/buttonEql"
         android:layout_width="48dp"
         android:layout_height="wrap_content"
@@ -189,6 +209,19 @@
         android:text="="
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="numberSigned|numberDecimal"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/operation"

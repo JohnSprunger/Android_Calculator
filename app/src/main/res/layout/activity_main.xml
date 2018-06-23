@@ -7,6 +7,38 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/buttonOff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="OFF"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonAdd"
+        app:layout_constraintStart_toEndOf="@+id/buttonAdd" />
+
+    <Button
+        android:id="@+id/buttonClr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="CLR"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMin"
+        app:layout_constraintStart_toEndOf="@+id/buttonMin" />
+
+    <Button
+        android:id="@+id/buttonMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:minWidth="48dp"
+        android:text="%"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDiv"
+        app:layout_constraintStart_toEndOf="@+id/buttonDiv" />
+
+    <Button
         android:id="@+id/buttonNeg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,8 +46,8 @@
         android:minWidth="48dp"
         android:text="NEG"
         android:textSize="12sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonDiv"
-        app:layout_constraintStart_toEndOf="@+id/buttonDiv" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonMul"
+        app:layout_constraintStart_toEndOf="@+id/buttonMul" />
 
     <Button
         android:id="@+id/button0"
