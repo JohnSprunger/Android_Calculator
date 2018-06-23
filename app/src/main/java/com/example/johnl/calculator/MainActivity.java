@@ -48,6 +48,9 @@ public class MainActivity extends AppCompatActivity {
         Button buttonMin = (Button) findViewById(R.id.buttonMin);
         Button buttonMul = (Button) findViewById(R.id.buttonMul);
         Button buttonNeg = (Button) findViewById(R.id.buttonNeg);
+        Button buttonMod = (Button) findViewById(R.id.buttonMod);
+        Button buttonClr = (Button) findViewById(R.id.buttonClr);
+        Button buttonOff = (Button) findViewById(R.id.buttonOff);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -93,6 +96,26 @@ public class MainActivity extends AppCompatActivity {
         buttonEql.setOnClickListener(opListener);
         buttonMin.setOnClickListener(opListener);
         buttonMul.setOnClickListener(opListener);
+        buttonMod.setOnClickListener(opListener);
+
+        buttonOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                System.exit(0);
+            }
+        });
+
+        buttonClr.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                newNumber.setText("");
+                result.setText("");
+                displayOperation.setText("");
+                operand1 = null;
+                pendingOp = "";
+            }
+        });
 
         buttonNeg.setOnClickListener(new View.OnClickListener(){
            @Override
@@ -113,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
            }
         });
     }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -158,6 +182,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case "-":
                     operand1 -= value;
+                    break;
+                case "%":
+                    operand1 %= value;
                     break;
             }
         }
